@@ -1,1 +1,1 @@
-# shop-bakery-project
+# Сучасна пекарня "SHOP bakery"
