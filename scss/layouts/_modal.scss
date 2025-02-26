@@ -1,0 +1,52 @@
+.backdrop {
+  position: fixed;
+  top: 0; /* цими значеннями розтягнули на всю ширину екрана */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center; /*  зробили вікно посередині по y */
+  justify-content: center; /*  а тут центер по осі х */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  transition: opacity 0.3s, visibility 0.3s; /* плавна анімація при натисканні на кнопку замовити дзвінок  */
+
+  &.is-hidden {
+    /* display: none; */
+    /* для того щоб в майбутньому працювала анімація display: none не задається, 
+        тому що не всі властивості можуть бути анімованими, тоді ми задаємо наступні значення */
+    opacity: 0;
+    visibility: hidden; /* відповідає за те чи буде елемент видимий для браузера */
+    pointer-events: none;
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  height: 100%;
+  max-height: 880px;
+  padding: 64px 48px; /* задали відступи в модальному вікні */
+  background-color: var(--color-primary-light);
+  border-radius: 32px;
+  overflow-y: auto; /* для того щоб контен в середині відображався правильно, і можна було скролити */
+
+  @media screen and (min-width: $bp-tablet) {
+    padding: 128px;
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+
+  &__form-field {
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    margin: 0 auto 24px; /* це значення для того щоб розташувати кнопку по центрі, але працює це тільки для блокових елементів (а кнопка була inline-block) */
+  }
+}

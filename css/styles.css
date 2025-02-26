@@ -1,0 +1,615 @@
+/* Шрифт підключений локально */
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/poppins-v21-latin-300.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/poppins-v21-latin-regular.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/poppins-v21-latin-600.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/poppins-v21-latin-900.woff2") format("woff2");
+}
+
+/* CSS-змінні або кастомні властивості */
+:root {
+  --color-brand: #819b57;
+  --color-brand-dark: #465929;
+  --color-brand-light: #cfcfbc;
+  --color-primary-dark: #31261a;
+  --color-primary-light: #faf4ea;
+  --color-secondary-dark: #a18268;
+}
+
+/* Basic style */
+*,
+*::after,
+*::before {
+  box-sizing: border-box; /*модель візуального форматування, а зірочка - це селектор який вибирає всі елементи на сторінці */
+}
+
+body {
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0; /* в body margin був 8 пікселів, тому ми його забрали */
+}
+
+/* браузер по замовчеванню додає margin зверху і знизу, зверху вони нам не потрібні */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+a {
+  display: inline-block;
+}
+
+address {
+  font-style: normal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.section {
+  padding: 48px 0; /* для кожної секції задали відступи зверху і знизу, створивши загальний клас, 
+  якщо треба відступ 96 між класами, то ми відступ : на 2 */
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* створили контейнер для кожної секції, так контент не буде розягуватися на всю ширину екрана */
+.container {
+  width: 100%; /* задали ширину контейнера, але в пікселях задавати не правильно */
+  max-width: 1288px; /* а тепер обмежили максимальну ширину, по макету 1240, а ми додали ще padding 48px */
+  margin: 0 auto; /* центрували контейнер */
+  /* padding: 0 24px; ???? щоб текст не прилипав до країв, задати відступи зліва і справа і ми додаємо 24+24 до ширини 1240px */
+}
+
+/* Button style */
+.button {
+  padding: 16px 32px;
+  color: var(--color-primary-light);
+  font-weight: 600;
+  background-color: var(--color-brand);
+  border: 2px solid var(--color-brand);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-brand-dark);
+}
+
+/* .button:disabled {
+   color: gray;
+  background-color: lightgray;
+  cursor: not-allowed;
+} */
+
+/* Link style */
+.link {
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color 0.3s; /* перехід задаємо завжди в елементі дл якого хочемо його застосувати */
+}
+
+.link:hover {
+  color: var(--color-brand);
+  /* font-weight: 600; */
+}
+
+/* Header */
+header {
+  position: absolute; /* спозиціонували header щоб він накладався поверх головної секції */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 32px; /*коли є позиціонування елемента, відстань рекомендовано задавати черз padding чи margin, задаємо окремо*/
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* задали відстань між кнопкою і меню */
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 40px; /* задали відстань між лого і меню */
+}
+
+.header-menu {
+  display: flex;
+  gap: 64px; /* задали відстань між елементами */
+  flex-grow: 1; /* розтягнули список ul на все вільне місце контейнера */
+  justify-content: center;
+}
+
+/* Main section */
+.hero-section {
+  padding: 272px 0;
+  background-image: linear-gradient(
+      102.76deg,
+      rgba(18, 18, 17, 0.78) 2.03%,
+      rgba(18, 18, 17, 0.6) 58.46%,
+      rgba(18, 18, 17, 0) 90.36%
+    ),
+    url(../images/hero-section-background.jpg); /* Підключили фонове зображення, 
+  але оскільки воно має обмежену ширину, то на більших екранах браузер буде його повторювати */
+  background-repeat: no-repeat; /* це для того щоб зображення не повторювалось, є ще repeat-x, repeat-y */
+  /* background-position: left right center bottom; - відповідає за позицію фону, задається двома параметрами, 
+  зміщується по осі х та у, відлік починається з верхньої лівої точки */
+  background-position: center top;
+  /* background-size: 1000px 1000px, contain (буде зберігати свої пропорції, але буде повністю відображене в секції),
+   cover(пропорції зберігаються і зображення розтягується на все вільне місце в секції); - відповідає за розмір фону, 
+   приймає два значення, ширина і висота, але не зберігає свої пропорції */
+  background-size: cover;
+  /* background-attachment: fixed ; закріплення фону (декоративний ефект) */
+}
+
+.hero-title {
+  margin-bottom: 0;
+  color: var(--color-primary-light);
+  text-align: center;
+  font-size: 128px;
+  font-weight: 900;
+}
+
+.hero-title .accent {
+  color: var(--color-brand);
+}
+
+/* Benefit section */
+.advantages-section {
+  padding: 16px 0; /* за допомогою padding, задали відступи */
+  background-color: var(
+    --color-brand
+  ); /* Задали колір для всієї секції, щоб його розтягнути по всій ширині екрану, а не тільки по ширині блоку */
+}
+
+.advantages-list {
+  display: flex; /* Спершу розташували елементи в рядок, а тоді скористалися властивістю justify-content, 
+  щоб браузер розрахував одинакову відстань */
+  justify-content: space-between;
+  gap: 40px; /* щоб при зменшенні екрану елементи не торкались один одного */
+}
+
+.advantages-item {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-primary-light);
+}
+
+.section-title {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.section-title.centered {
+  /* Центрували заголовки formats i chefs */
+  text-align: center;
+}
+
+.section-title .accent {
+  color: var(--color-brand-dark);
+}
+
+/* Traditions section */
+.traditions-section {
+  padding-top: 96px;
+}
+
+.traditions-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px; /* задали відстань між двома блоками, текстом і зображенням */
+}
+
+.tradition-content {
+  max-width: 710px; /* обмежили сам контент по ширині */
+}
+
+.traditions-title {
+  margin-bottom: 42px;
+}
+
+.traditions-text.limited {
+  max-width: 330px; /* створили додатковий клас limited і задали йому максимальну ширину до другого параграфа,
+  щоб перенести текст (замість <br>) */
+}
+
+.traditions-text .brand {
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+.traditions-text .uppercase {
+  text-transform: uppercase;
+}
+
+/* Chef section */
+.chefs-title {
+  position: relative; /* оскільки відносно цього заголовку ми будемо позиціонувати лінії */
+  /* max-width: 520px;  ми вирішили забрати це значення а просто додати br, щоб по іншому спозиціонувати лінії*/
+  margin: 0 auto 80px; /* марджин щоб центрувати заголовок і ьфджин bottom 80px */
+}
+
+.chefs-title::before,
+.chefs-title::after {
+  /*display: block; оскільки ми додали position: absolute, то автоматично рядкові елементи стають блоковими  */
+  width: 352px; /* ширина лінії */
+  border: 2px solid var(--color-brand-light); /* і задали стиль для лінії через бордер, оскільки це псевдоелемент*/
+  /* інший спосіб, задати висоту 2 px і background color 
+  height: 2px;
+  background-color: #cfcfbc; */
+  content: ""; /* це обовязкова властивість */
+}
+
+.chefs-title::before {
+  position: absolute;
+  bottom: 24px; /* це значення по макету */
+  left: 0; /* оскільки ми забрали max-width, то заголовок займає всю ширину сторінки і ми спозиціонували відносно цієї ширини */
+}
+
+.chefs-title::after {
+  position: absolute;
+  bottom: 24px;
+  right: 0;
+}
+
+.chefs-list {
+  display: flex; /* розбили цю секцію на два блоки щоб розмістити їх в рядок за допомогою флекс значення */
+  gap: 40px 30px;
+  flex-wrap: wrap;
+}
+
+.chefs-item {
+  flex-basis: calc(
+    (100% - 30px) / 2
+  ); /* це ширина флексового елемента(а не width), ми 100% ширини розділили на два елементи і відняли gap, щоб задати ширину порівно */
+}
+
+.chef-card {
+  display: flex;
+  gap: 30px;
+}
+
+.chef-photo {
+  border-radius: 4px 4px 4px 200px; /* зробили заокруглення для фото */
+  box-shadow: -16px 16px 0 0 var(--color-primary-light),
+    -16px 16px 0 2px var(--color-secondary-dark); /* зробили лінію навколо фото, задавши два бордера з фоном нашої сторінки
+    і тонка лінія в 2рх темніша */
+}
+
+.chef-title {
+  margin-bottom: 16px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.chef-text p {
+  margin-bottom: 24px;
+}
+
+.chef-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Format section */
+.formats-container {
+  display: flex; /* задали значення flex щоб дві кнопки button і наш список розташувались в рядок, стали гнучкими */
+  align-items: center; /* так ми вирівняли наші стрілочки по осі y */
+  gap: 32px;
+}
+
+.formats-list {
+  display: flex;
+  flex-wrap: wrap; /* для перенесення в новий рядок */
+  gap: 20px; /* простір між картками */
+}
+
+.formats-item {
+  flex-basis: calc(
+    (100% - 40px) / 3
+  ); /* такий формат задаємо для каталогу, щоб розмістити товари один під одним,
+  як товари в інтернет магазині (ми відняли gep 40, бо в нас два відступи по 20px) */
+}
+
+.format-card {
+  height: 444px;
+  padding: 24px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    var(--color-primary-dark) 100%
+  ); /* градієнт з кутом нахилу */
+  border: 1px solid lightgrey;
+  border-radius: 16px;
+  min-height: 100%; /* для одинакової ширини карток */
+  transition: transform 0.3s;
+}
+
+.format-card:hover {
+  transform: scale(
+    1.05
+  ); /*дозволяє збільшувати або зменшувати розмір елемента */
+}
+
+.formats-title {
+  margin-bottom: 80px;
+}
+
+.format-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.format-text {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Icone arrow */
+.carousel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* коли ми задали флекс до formats-container, то список трохи витісняв кнопки і вони змінили форму,
+  а це значення дає нам щоб при жодних обставинах елементи не повинні зменшувати розмір  */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: transparent;
+  fill: var(
+    --color-primary-dark
+  ); /* властивість fill наслідується, тому ми не створюєм клас до svg, а задаємо значення в button */
+  border-radius: 50%;
+  border: 1px solid var(--color-primary-dark);
+  cursor: pointer;
+}
+
+.carousel-button:hover {
+  background-color: var(--color-primary-dark);
+  fill: var(--color-primary-light); /* тут так само діє принцип наслідування */
+}
+
+.carousel-button.next {
+  transform: rotate(180deg); /* розвернули другу стрілку в зворотню сторону */
+}
+
+/* Contact section */
+.contact-section {
+  padding-bottom: 96px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 32px;
+}
+
+.contact-title {
+  margin-bottom: 16px;
+}
+
+.contact-map {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 16px;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  background-color: var(--color-primary-dark);
+  background-image: url(./images/footer-backround.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 32px 0; /* padding додаємо до самої секції, тобто до footer */
+}
+
+.footer::before {
+  position: absolute;
+  width: 180px;
+  height: 120px;
+  left: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-image: url(./images/small-bread-footer.png);
+  content: "";
+}
+
+.footer::after {
+  position: absolute;
+  width: 380px;
+  height: 190px;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-image: url(./images/large-bread-footer.png);
+  content: "";
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px; /* для того щоб елементи не прилипали один до одного під час зменшення екрану */
+}
+
+.footer-nav,
+.footer-address {
+  flex-basis: 50%; /* займе 50% ширини контейнера вздовж основної осі,  */
+  display: flex;
+  gap: 20px; /* для того щоб елементи не прилипали один до одного під час зменшення екрану */
+}
+
+.footer-logo,
+.footer-menu {
+  flex-grow: 1; /*розподіл доступного простору між елементами, ми могли використати і flex-basis: 50%, 
+  також це для того щоб кожен елемент пропорційно зменшувався*/
+}
+
+.address-list,
+.address-info {
+  flex-grow: 1; /* значення 1  означає, що елемент може збільшуватися використовуючи одну частину вільного простору */
+}
+
+.address-link {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.address-link:hover {
+  color: var(--color-brand);
+}
+
+.address-copyright {
+  font-size: 14px;
+  color: var(--color-secondary-dark);
+}
+
+.address-icon {
+  fill: var(--color-primary-light); /* додає колір іконці svg */
+  /* stroke: ; - додає обводку іконці */
+}
+
+/* МОДАЛЬНЕ ВІКНО */
+.backdrop {
+  position: fixed;
+  top: 0; /* цими значеннями розтягнули на всю ширину екрана */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center; /*  зробили вікно посередині по y */
+  justify-content: center; /*  а тут центер по осі х */
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 0;
+  transition: opacity 0.3s, visibility 0.3s; /* плавна анімація при натисканні на кнопку замовити дзвінок  */
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  height: 100%;
+  max-height: 880px;
+  padding: 128px; /* задали відступи в модальному вікні */
+  background-color: var(--color-primary-light);
+  border-radius: 32px;
+  overflow-y: auto; /* для того щоб контен в середині відображався правильно, і можна було скролити */
+}
+
+.backdrop.is-hidden {
+  /* display: none; */
+  /* для того щоб в майбутньому працювала анімація display: none не задається, 
+  тому що не всі властивості можуть бути анімованими, тоді ми задаємо наступні значення */
+  opacity: 0;
+  visibility: hidden; /* відповідає за те чи буде елемент видимий для браузера */
+  pointer-events: none;
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+/* FORM */
+.form-field {
+  margin-bottom: 32px; /* додали відступ між полями вводу */
+  position: relative;
+}
+
+.form-label {
+  position: absolute;
+  top: 160px;
+  left: 42px;
+}
+
+.form-input {
+  padding: 16px 42px; /* висота для input задається через padding */
+  font-size: 16px; /* розмір тексту коли ми вводимо щось */
+  line-height: 1.17;
+  width: 100%; /* розтягнули поле вводу по всій ширині */
+  background-color: transparent;
+  border: 1px solid var(--color-secondary-dark);
+  border-radius: 8px;
+}
+
+.form-input:focus {
+  border-color: var(--color-brand);
+  outline: none; /* за замовчуванням браузер додає підсвітку для поля коли ми на нього натискаємо, тому ми забрали цю властивість */
+}
+
+.form-input::placeholder {
+  color: var(--color-secondary-dark);
+  font-size: 16px; /* розмір тексту на фокусі */
+  line-height: 1.17;
+}
+
+.form-input:focus::placeholder {
+  color: var(--color-primary-dark);
+}
+
+.form-button {
+  display: block;
+  margin: 0 auto 24px; /* це значення для того щоб розташувати кнопку по центрі, але працює це тільки для блокових елементів (а кнопка була inline-block) */
+}
+
+.form-terms {
+  max-width: 210px;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.form-terms-link {
+  color: var(--color-primary-dark);
+  text-underline-offset: 2px;
+}

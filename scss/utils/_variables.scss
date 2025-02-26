@@ -1,0 +1,13 @@
+:root {
+    --color-brand: #819b57;
+    --color-brand-dark: #465929;
+    --color-brand-light: #cfcfbc;
+    --color-primary-dark: #31261a;
+    --color-primary-light: #faf4ea;
+    --color-secondary-dark: #a18268;
+  }
+
+/*scss змінні прописуються через $*/
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1280px;

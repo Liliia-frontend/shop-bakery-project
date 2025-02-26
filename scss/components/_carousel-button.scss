@@ -1,0 +1,28 @@
+.carousel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* коли ми задали флекс до formats-container, то список трохи витісняв кнопки і вони змінили форму,
+      а це значення дає нам щоб при жодних обставинах елементи не повинні зменшувати розмір  */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: transparent;
+  fill: var(
+    --color-primary-dark
+  ); /* властивість fill наслідується, тому ми не створюєм клас до svg, а задаємо значення в button */
+  border-radius: 50%;
+  border: 1px solid var(--color-primary-dark);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+    fill: var(
+      --color-primary-light
+    ); /* тут так само діє принцип наслідування */
+  }
+
+  &.next {
+    transform: rotate(180deg); /* розвернули другу стрілку в зворотню сторону */
+  }
+}

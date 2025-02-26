@@ -1,0 +1,34 @@
+.formats-section {
+  &__slider {
+    display: flex; /* задали значення flex щоб дві кнопки button і наш список розташувались в рядок, стали гнучкими */
+    align-items: center; /* так ми вирівняли наші стрілочки по осі y */
+    gap: 32px;
+  }
+
+  &__container {
+    overflow: hidden;
+  }
+
+  &__list {
+    margin-bottom: 32px; //відстань між картками і пагінацією
+  }
+
+  &__button {
+    display: none;
+
+    @media screen and (min-width: $bp-tablet) {
+      display: flex;
+    }
+  }
+
+  // &__item {
+  //   flex-basis: calc(
+  //     (100% - 40px) / 3
+  //   ); /* такий формат задаємо для каталогу, щоб розмістити товари один під одним,
+  //     як товари в інтернет магазині (ми відняли gep 40, бо в нас два відступи по 20px) */
+  // }
+
+  // &__title {
+  //   margin-bottom: 80px; /* ?? */
+  // }
+}

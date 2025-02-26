@@ -1,0 +1,89 @@
+.footer {
+  padding: 32px 0; /* padding додаємо до самої секції, тобто до footer */
+  position: relative;
+  background-color: var(--color-primary-dark);
+  background-image: url(../images/footer-backround.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+  &::before {
+    width: 100px;
+    height: 90px;
+    left: 0;
+
+    background-image: url(../images/small-bread-footer.png);
+  }
+
+  &::after {
+    width: 380px;
+    height: 190px;
+    right: 0;
+    background-image: url(../images/large-bread-footer.png);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* для того щоб елементи не прилипали один до одного під час зменшення екрану */
+
+    @media screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__nav,
+  &__address {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* для того щоб елементи не прилипали один до одного під час зменшення екрану */
+    text-align: center;
+
+    @media screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+      flex-basis: 50%; /* займе 50% ширини контейнера вздовж основної осі,  */
+      text-align: left;
+    }
+  }
+
+  &__logo,
+  &__menu {
+    flex-grow: 1; /*розподіл доступного простору між елементами, ми могли використати і flex-basis: 50%, 
+      також це для того щоб кожен елемент пропорційно зменшувався*/
+  }
+
+  &__address-list,
+  &__address-info {
+    flex-grow: 1; /* значення 1  означає, що елемент може збільшуватися використовуючи одну частину вільного простору */
+  }
+
+  &__address-link {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-primary-light);
+    text-decoration: none;
+  }
+
+  &__address-link:hover {
+    color: var(--color-brand);
+  }
+
+  &__address-copyright {
+    font-size: 14px;
+    color: var(--color-secondary-dark);
+  }
+
+  &__address-icon {
+    fill: var(--color-primary-light); /* додає колір іконці svg */
+    /* stroke: ; - додає обводку іконці */
+    margin: 10px;
+  }
+}

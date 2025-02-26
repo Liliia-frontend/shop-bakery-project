@@ -1,0 +1,58 @@
+.chefs-section {
+  &__title {
+    position: relative; /* оскільки відносно цього заголовку ми будемо позиціонувати лінії */
+    /* max-width: 520px;  ми вирішили забрати це значення а просто додати br, щоб по іншому спозиціонувати лінії*/
+    margin: 0 auto 24px; //марджин щоб центрувати заголовок
+
+    @media screen and (min-width: $bp-desktop) {
+      margin-bottom: 80px;
+    }
+
+    &::before,
+    &::after {
+      display: block;
+
+      @media screen and (min-width: $bp-desktop) {
+        /*display: block; оскільки ми додали position: absolute, то автоматично рядкові елементи стають блоковими  */
+        width: 352px; /* ширина лінії */
+        border: 2px solid var(--color-brand-light); /* і задали стиль для лінії через бордер, оскільки це псевдоелемент*/
+        /* інший спосіб, задати висоту 2 px і background color 
+      height: 2px;
+      background-color: #cfcfbc; */
+        content: ""; /* це обовязкова властивість */
+      }
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 24px; /* це значення по макету */
+      left: 0; /* оскільки ми забрали max-width, то заголовок займає всю ширину сторінки і ми спозиціонували відносно цієї ширини */
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 24px;
+      right: 0;
+    }
+  }
+
+  &__list {
+    display: flex; /* розбили цю секцію на два блоки щоб розмістити їх в рядок за допомогою флекс значення */
+    flex-direction: column; //щоб картки відображались в колонку на таб версії
+    gap: 20px;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+      gap: 40px 30px;
+    }
+  }
+
+  &__item {
+    @media screen and (min-width: $bp-tablet) {
+      flex-basis: calc(
+        (100% - 30px) / 2
+      ); /* це ширина флексового елемента(а не width), ми 100% ширини розділили на два елементи і відняли gap, щоб задати ширину порівно */
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.input {
+    position: relative;
+  
+    &__label {
+      position: absolute;
+      top: 160px;
+      left: 42px;
+    }
+  
+    &__control {
+      padding: 16px 42px; /* висота для input задається через padding */
+      font-size: 16px; /* розмір тексту коли ми вводимо щось */
+      line-height: 1.17;
+      width: 100%; /* розтягнули поле вводу по всій ширині */
+      background-color: transparent;
+      border: 1px solid var(--color-secondary-dark);
+      border-radius: 8px;
+  
+      &:focus {
+        border-color: var(--color-brand);
+        outline: none; /* за замовчуванням браузер додає підсвітку для поля коли ми на нього натискаємо, тому ми забрали цю властивість */
+      }
+  
+      &::placeholder {
+        color: var(--color-secondary-dark);
+        font-size: 16px; /* розмір тексту на фокусі */
+        line-height: 1.17;
+      }
+  
+      &:focus::placeholder {
+        color: var(--color-primary-dark);
+      }
+    }
+  }
+  
