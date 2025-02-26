@@ -1,2 +1,2 @@
-# Genius Space/Сучасна пекарня "SHOP bakery"
+Сучасна пекарня "SHOP bakery"
 
