@@ -40,6 +40,15 @@
     position: absolute;
     top: 40px;
     right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    fill: transparent;
+    stroke: var(--color-primary-dark);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
 
   &__form-field {
@@ -48,5 +57,37 @@
 
   &__button {
     margin: 0 auto 24px; /* це значення для того щоб розташувати кнопку по центрі, але працює це тільки для блокових елементів (а кнопка була inline-block) */
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 32px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 900;
+
+    @media screen and (min-width: $bp-tablet) {
+      font-size: 64px;
+      line-height: 1.3;
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--color-brand-dark);
+
+    @media screen and (min-width: $bp-tablet) {
+      margin-bottom: 72px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    right: 0px;
+    width: 180px;
+    height: 240px;
+    background-image: url(../images/bakery_landing.png);
+    content: "";
   }
 }

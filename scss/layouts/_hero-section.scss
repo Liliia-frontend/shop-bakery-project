@@ -18,7 +18,7 @@
   background-size: cover;
   /* background-attachment: fixed ; закріплення фону (декоративний ефект) */
 
-  @media screen and (min-width: $bp-desktop) {
+  @media screen and (min-width: $bp-tablet) {
     padding: 272px 0;
   }
 

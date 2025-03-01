@@ -1,19 +1,20 @@
 .advantages-section {
-  padding: 16px 0; /* за допомогою padding, задали відступи */
+  padding: 40px 0 20px; /* за допомогою padding, задали відступи */
 
   @media screen and (min-width: $bp-tablet) {
     background-color: var(--color-brand);
     /* Задали колір для всієї секції, щоб його розтягнути по всій ширині екрану, а не тільки по ширині блоку */
+    padding: 16px 0; /* за допомогою padding, задали відступи */
   }
 
   &__list {
     display: flex; /* Спершу розташували елементи в рядок, а тоді скористалися властивістю justify-content, 
         щоб браузер розрахував одинакову відстань */
-        flex-direction: column;
-        gap: 16px;
-        padding: 24px 40px;
-        background-color: var(--color-brand-light);
-        border-radius: 24px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 40px;
+    background-color: var(--color-brand-light);
+    border-radius: 24px;
 
     @media screen and (min-width: $bp-tablet) {
       flex-direction: row;
