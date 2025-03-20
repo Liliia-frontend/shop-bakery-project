@@ -19,14 +19,14 @@
     width: 100px;
     height: 90px;
     right: 0;
-    background-image: url(/images/small-bread-footer-mobile.png);
+    background-image: url(../images/small-bread-footer-mobile.png);
 
     @media screen and (min-width: $bp-tablet) {
       left: 0;
       right: auto;
       width: 180px;
       height: 120px;
-      background-image: url(/images/small-bread-footer.png);
+      background-image: url(../images/small-bread-footer.png);
     }
   }
 
