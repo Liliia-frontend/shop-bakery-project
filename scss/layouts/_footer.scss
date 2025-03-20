@@ -106,6 +106,7 @@
 
   &__address-link:hover {
     color: var(--color-brand);
+    transition: color 0.3s;
   }
 
   &__socials {
@@ -132,5 +133,6 @@
 
   &__socials-icon:hover {
     fill: var(--color-brand);
+    transition: fill 0.3s;
   }
 }
