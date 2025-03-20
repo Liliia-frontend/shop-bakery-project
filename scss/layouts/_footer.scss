@@ -35,7 +35,7 @@
     height: 205px;
     top: 0;
     left: 0;
-    background-image: url(/images/large-bread-footer-mobile.png);
+    background-image: url(../images/large-bread-footer-mobile.png);
 
     @media screen and (min-width: $bp-tablet) {
       right: 0;
@@ -43,7 +43,7 @@
       left: auto;
       width: 380px;
       height: 190px;
-      background-image: url(/images/large-bread-footer.png);
+      background-image: url(../images/large-bread-footer.png);
     }
   }
 
