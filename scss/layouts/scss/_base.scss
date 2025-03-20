@@ -1,0 +1,58 @@
+/* Basic style */
+*,
+*::after,
+*::before {
+  box-sizing: border-box; /*модель візуального форматування, а зірочка - це селектор який вибирає всі елементи на сторінці */
+}
+
+html {
+  scroll-behavior: smooth; // для плавного скролінку на сторінці
+}
+
+body {
+  margin: 0; /* в body margin був 8 пікселів, тому ми його забрали */
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+
+  @media screen and (min-width: $bp-tablet) {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+/* браузер по замовчеванню додає margin зверху і знизу, зверху вони нам не потрібні */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+// обовязкові значення для зображень
+img {
+  display: block;
+  max-width: 100%;// для того щоб зображення було респонствним за замовчуванням, мали можливість маштабуватися
+  height: auto;
+  object-fit: cover; //щоб зображення не розтягувалось при стисненні екрану (зберігає пропорції)
+}
+
+a {
+  display: inline-block;
+}
+
+address {
+  font-style: normal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

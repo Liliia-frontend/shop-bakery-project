@@ -1,0 +1,38 @@
+.traditions-section {
+  padding-top: 20px;
+
+  @media screen and (min-width: $bp-tablet) {
+    padding-top: 96px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start; // дозволяє не розтягувати зображення
+    justify-content: space-between;
+    gap: 40px; /* задали відстань між двома блоками, текстом і зображенням */
+  }
+
+  &__content {
+    max-width: 710px; /* обмежили сам контент по ширині */
+  }
+
+  &__title {
+    margin-bottom: 42px;
+  }
+
+  &__text {
+    &--limited {
+      max-width: 340px; /* створили додатковий клас limited (який є модифікатором і записується через --) і задали йому максимальну ширину до другого параграфа,
+        щоб перенести текст (замість <br>) */
+    }
+  }
+
+  &__image {
+    display: none;
+    border-radius: 400px 400px 0px 0px;
+
+    @media screen and (min-width: $bp-tablet) {
+      display: block;
+    }
+  }
+}

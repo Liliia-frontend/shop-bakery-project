@@ -1,0 +1,10 @@
+.link {
+    color: var(--color-primary-light);
+    text-decoration: none;
+    transition: color 0.3s; /* перехід задаємо завжди в елементі дл якого хочемо його застосувати */
+  }
+  
+  .link:hover {
+    color: var(--color-brand);
+    /* font-weight: 600; */
+  }

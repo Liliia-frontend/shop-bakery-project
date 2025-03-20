@@ -1,0 +1,60 @@
+.hero-section {
+  padding: 124px 0;
+  background-image: linear-gradient(
+      102.76deg,
+      rgba(18, 18, 17, 0.78) 2.03%,
+      rgba(18, 18, 17, 0.6) 58.46%,
+      rgba(18, 18, 17, 0) 90.36%
+    ),
+    url(../images/hero-section-background.jpg); /* Підключили фонове зображення, 
+      але оскільки воно має обмежену ширину, то на більших екранах браузер буде його повторювати */
+  background-repeat: no-repeat; /* це для того щоб зображення не повторювалось, є ще repeat-x, repeat-y */
+  /* background-position: left right center bottom; - відповідає за позицію фону, задається двома параметрами, 
+      зміщується по осі х та у, відлік починається з верхньої лівої точки */
+  background-position: center top;
+  /* background-size: 1000px 1000px, contain (буде зберігати свої пропорції, але буде повністю відображене в секції),
+       cover(пропорції зберігаються і зображення розтягується на все вільне місце в секції); - відповідає за розмір фону, 
+       приймає два значення, ширина і висота, але не зберігає свої пропорції */
+  background-size: cover;
+  /* background-attachment: fixed ; закріплення фону (декоративний ефект) */
+
+  @media screen and (min-width: $bp-tablet) {
+    padding: 272px 0;
+  }
+
+  // Ретинізація фонового зображення
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        102.76deg,
+        rgba(18, 18, 17, 0.78) 2.03%,
+        rgba(18, 18, 17, 0.6) 58.46%,
+        rgba(18, 18, 17, 0) 90.36%
+      ),
+      url(../images/hero-section-background@2x.jpg);
+  }
+
+  &__title {
+    margin-bottom: 48px;
+    color: var(--color-primary-light);
+    text-align: center;
+    font-size: 67px;
+    line-height: 1;
+    font-weight: 900;
+
+    @media screen and (min-width: $bp-desktop) {
+      margin-bottom: 0;
+      font-size: 128px;
+      line-height: 1.5;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    @media screen and (min-width: $bp-desktop) {
+      display: none;
+    }
+  }
+}

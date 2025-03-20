@@ -1,0 +1,76 @@
+/* Шрифт підключений локально */
+@import "./utils/fonts";
+
+/* CSS-змінні або кастомні властивості */
+@import "./utils/variables";
+
+/*Клас з брендовим кольору для акценту в тексті*/
+@import './utils/texts';
+
+/* Basic style */
+@import "./base";
+
+//прихований заголовок 
+@import "./utils/utils";
+
+// SECTION
+@import "./layouts/section";
+
+// CONTAINER
+@import "./layouts/container";
+
+/* Button style */
+@import './components/buttons';
+
+/* .button:disabled {
+     color: gray;
+    background-color: lightgray;
+    cursor: not-allowed;
+  } */
+
+/* Link style */
+@import './components/links';
+
+/* Header */
+@import './layouts/header';
+
+/* Main section */
+@import './layouts/hero-section';
+
+/* Benefit section */
+@import './layouts/advantages-section';
+
+/* Traditions section */
+@import './layouts/traditions-section';
+
+/* Chef section */
+@import './layouts/chef-section';
+@import './components/chef-card';
+
+/* Icone arrow */
+@import "./components/carousel-button";
+
+/* Format section */
+@import './layouts/formats-section';
+@import './components/format-card';
+
+/*INPUT*/
+@import './components/input';
+
+/* Contact section */
+@import "./layouts/contact-section";
+
+/* Footer */
+@import "./layouts/footer";
+
+/* МОДАЛЬНЕ ВІКНО */
+@import "./layouts/modal";
+
+/* FORM */
+@import "./layouts/form-terms";
+
+/*Мобільне меню*/
+@import './layouts/mobile-menu';
+
+/*Нумерація сторінок Pagination*/ 
+@import './components/pagination';

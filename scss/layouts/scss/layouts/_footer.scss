@@ -1,0 +1,136 @@
+.footer {
+  padding: 32px 0; /* padding додаємо до самої секції, тобто до footer */
+  position: relative;
+  background-color: var(--color-primary-dark);
+  background-image: url(../images/footer-backround.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &::before,
+  &::after {
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    content: "";
+  }
+
+  &::before {
+    width: 100px;
+    height: 90px;
+    right: 0;
+    background-image: url(../images/small-bread-footer-mobile.png);
+
+    @media screen and (min-width: $bp-tablet) {
+      left: 0;
+      right: auto;
+      width: 180px;
+      height: 120px;
+      background-image: url(../images/small-bread-footer.png);
+    }
+  }
+
+  &::after {
+    width: 85px;
+    height: 205px;
+    top: 0;
+    left: 0;
+    background-image: url(/images/large-bread-footer-mobile.png);
+
+    @media screen and (min-width: $bp-tablet) {
+      right: 0;
+      top: auto;
+      left: auto;
+      width: 380px;
+      height: 190px;
+      background-image: url(/images/large-bread-footer.png);
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* для того щоб елементи не прилипали один до одного під час зменшення екрану */
+
+    @media screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__nav,
+  &__address {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* для того щоб елементи не прилипали один до одного під час зменшення екрану */
+    text-align: center;
+
+    @media screen and (min-width: $bp-tablet) {
+      flex-direction: row;
+      flex-basis: 50%; /* займе 50% ширини контейнера вздовж основної осі,  */
+      text-align: left;
+    }
+  }
+
+  &__logo,
+  &__menu {
+    flex-grow: 1; /*розподіл доступного простору між елементами, ми могли використати і flex-basis: 50%, 
+      також це для того щоб кожен елемент пропорційно зменшувався*/
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 16px;
+  }
+
+  &__address-list,
+  &__address-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* значення 1  означає, що елемент може збільшуватися використовуючи одну частину вільного простору */
+    gap: 16px;
+  }
+
+  &__address-list,
+  &__address-info {
+    flex-grow: 1;
+  }
+
+  &__address-link {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--color-primary-light);
+    text-decoration: none;
+  }
+
+  &__address-link:hover {
+    color: var(--color-brand);
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 16px;
+
+    @media screen and (min-width: $bp-tablet) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__address-copyright {
+    font-size: 14px;
+    color: var(--color-secondary-dark);
+  }
+
+  &__socials-icon {
+    fill: var(--color-primary-light);
+    /* додає колір іконці svg */
+    // stroke: ;/*- додає обводку іконці */
+  }
+
+  &__socials-icon:hover {
+    fill: var(--color-brand);
+  }
+}

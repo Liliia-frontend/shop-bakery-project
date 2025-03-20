@@ -1,0 +1,44 @@
+.format-card {
+  position: relative;
+  display: flex; /* за допомогою цих трьох властивостей, ми посунули текст вниз картки */
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 444px;
+  padding: 24px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(49, 38, 26, 0) 55.21%,
+    rgba(49, 38, 26, 0.71) 72.92%,
+    var(--color-primary-dark) 100%
+  ); /* градієнт з кутом нахилу */
+  // min-height: 100%; /* для одинакової ширини карток */
+  border-radius: 16px;
+  overflow: hidden; /* для чого це?? */
+
+  // &:hover {
+  //   transform: scale(
+  //     1.05
+  //   ); /*дозволяє збільшувати або зменшувати розмір елемента при наведенні */
+  // }
+
+  &__image {
+    position: absolute;
+    z-index: -1; /*нище розтягнули зображення по всій ширині картки, а тут поклали зображення на рівень нижче по осі y, щоб текст був поверх */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary-light);
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--color-primary-light);
+  }
+}
